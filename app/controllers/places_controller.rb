@@ -17,7 +17,7 @@ class PlacesController < ApplicationController
   def show
   end
 
-  def dstroy
+  def destroy
   end
 
   private
