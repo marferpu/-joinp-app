@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :places
+  resources :places do
+    resources :reservations
+  end
   # get 'places'
   # get 'places/new'
   # post 'places'
