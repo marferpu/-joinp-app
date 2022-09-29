@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  get 'reservations/index'
-  get 'reservations/new'
-  get 'reservations/create'
-  get 'reservations/edit'
-  get 'reservations/update'
-  get 'reservations/show'
-  get 'reservations/destroy'
-  resources :places
+  resources :places do
+    resources :reservations
+  end
   # get 'places'
   # get 'places/new'
   # post 'places'
