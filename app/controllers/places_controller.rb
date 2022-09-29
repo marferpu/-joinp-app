@@ -19,4 +19,9 @@ class PlacesController < ApplicationController
 
   def dstroy
   end
+
+  private
+
+  def place_params
+  end
 end
