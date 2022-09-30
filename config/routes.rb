@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # patch 'places/:id'
   # get 'places/:id'
   # delete 'places/:id'
-  get 'users/:id', to: 'users#show'
+  # get 'users/:id', to: 'users#show'
   devise_for :users
   root to: "places#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
