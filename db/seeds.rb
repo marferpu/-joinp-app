@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+user = User.create(first_name: "Sebas", last_name: "H", email: "sh@email.com")
+user1 = User.create(first_name: "Marce", last_name: "F", email: "mf@email.com")
+Place.create(title: "Place 1", description: "Lugar bonito", address: "Medellín", price_per_hour: 10000, capicity: 3, photo_url: "https://www.google.com/aclk?sa=l&ai=DChcSEwiG2rqlsrv6AhVIIUwKHQa_D8wYABAFGgJvYQ&sig=AOD64_2PUMAakU73msCZ-jWBUl7lCssQJQ&adurl&ctype=5&ved=2ahUKEwju2Kqlsrv6AhWRjuAKHSFFAXEQvhd6BAgBEHY", category: "casa", user_id: user1.id)
+Place.create(title: "Place 2", description: "Lugar bonito para compartir", address: "Medellín", price_per_hour: 40000, capicity: 8, photo_url: "https://www.google.com/aclk?sa=l&ai=DChcSEwiG2rqlsrv6AhVIIUwKHQa_D8wYABAFGgJvYQ&sig=AOD64_2PUMAakU73msCZ-jWBUl7lCssQJQ&adurl&ctype=5&ved=2ahUKEwju2Kqlsrv6AhWRjuAKHSFFAXEQvhd6BAgBEHY", category: "parqueadero", user_id: user.id  )
+
+puts "Cargando datos Users"
+puts "Cargando datos places"
