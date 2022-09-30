@@ -1,2 +1,11 @@
-<h1>Places#new</h1>
-<p>Find me in app/views/places/new.html.erb</p>
+<h1>Add your New Place!</h1>
+<%= simple_form_for(@place) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :category %>
+  <%= f.input :price_per_hour %>
+  <%= f.input :capicity, label:"Capacity", placeholder:"Ingresa la capacidad màxima del lugar", class:"pt-5" %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit %>
+<% end %>
