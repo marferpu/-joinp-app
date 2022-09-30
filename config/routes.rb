@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :places do
-    resources :reservations
+    resources :reservations, only: [:new, :create]
   end
+  resources :reservations, only: [:show, :edit, :update, :destroy]
   # get 'places'
   # get 'places/new'
   # post 'places'

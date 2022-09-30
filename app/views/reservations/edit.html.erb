@@ -1,2 +1,11 @@
-<h1>Reservations#edit</h1>
-<p>Find me in app/views/reservations/edit.html.erb</p>
+<div class="container">
+  <h1>Editar Reservación para <%= @place.title %></h1>
+  <% simple_form_for [@place, @reservation] do |f| %>
+    <%= f.input :date %>
+    <%= f.input :visit_hour %>
+    <%= f.input :hour_quantity %>
+    <label for="total-price">Total Price:</label>
+    <p class="total-price"><%= reservation.hour_quantity * place.price_per_hour %></p>
+    <p>Status:</p>
+    <p>Status_Payment:</p>
+</div>
