@@ -1,9 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservations, only: %i[new create show edit update destroy]
-  def index
-    # @place = Place.find(params[:place_id])
-    @reservations = Reservation.all # se debe conectar con el place?
-  end
+  before_action :set_place, only: %i[new create show edit update destroy]
 
   def new
     @reservation = Reservation.new
@@ -20,15 +16,16 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+    @reservation = Reservation.find(params[:id])
   end
 
   def update
-    @reservation = Reservation.update(params[reservation_params])
-    @reservation.place = @place
+    @reservation = Reservation.find(params[:id])
+    @reservation.update(reservation_params)
     if @reservation.save
       redirect_to place_path(@place)
     else
-      render :index, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -39,7 +36,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    redirect_to place_path(@reservation.place), status: :see_other
+    redirect_to place_path(@place), status: :see_other
   end
 
   private
