@@ -1,5 +1,15 @@
-<h1>Places#show</h1>
-<p>Find me in app/views/places/show.html.erb</p>
-<% @place.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<div class="container">
+  <h1>Join People</h1>
+  <h3><%= @place.title%> (<%=@place.category %>)</h3>
+  <div>
+    <% @place.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
+  <p>Detalles: <%= @place.description %></p>
+  <p>Dirección: <%= @place.address %></p>
+  <p>Capacidad: <%= @place.capicity %> personas</p>
+  <p>Precio por hora: <%= @place.price_per_hour %> COP</p>
+
+<p><%= link_to "Regresar", places_path, class:"btn btn-primary"%></p>
+</div>
