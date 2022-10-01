@@ -1,12 +1,16 @@
 <div class="container">
-  <h1>Nueva Reservación</h1>
+  <h1 class="mb-4">Nueva Reservación</h1>
   <% simple_form_for [@place, @reservation] do |f| %>
     <%= f.input :date %>
     <%= f.input :visit_hour %>
-    <%= f.input :hour_quantity %>
+    <%= f.input :hour_quantity, class: "hours" %>
+    <%= f.submit "Aceptar", class: "btn btn-primary mt-4" %>
   <% end %>
-    <label for="total-price">Total Price:</label>
-    <%# <p class="total-price"><%= @reservation.hour_quantity * @place.price_per_hour  </p> %>
-    <p>Status:</p>
-    <p>Status_Payment:</p>
+  <h2 class="m-6">Valor a Pagar</h2>
+    <button class="btn btn-outline-primary mt-4" data-controller="payment-value" data-action="click->payment-value#total-pay">
+      CALCULAR TOTAL
+    </button>
+    <div class="total"
+      data-target="total">
+    </div>
 </div>

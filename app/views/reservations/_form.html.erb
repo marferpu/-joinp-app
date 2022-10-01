@@ -1,0 +1,6 @@
+<% simple_form_for [@place, @reservation] do |f| %>
+    <%= f.input :date %>
+    <%= f.input :visit_hour %>
+    <%= f.input :hour_quantity, class: "hours" %>
+    <%= f.submit "Aceptar", class: "btn btn-primary mt-4" %>
+<% end %>
