@@ -12,4 +12,5 @@
   <p>Precio por hora: <%= @place.price_per_hour %> COP</p>
 
 <p><%= link_to "Regresar", places_path, class:"btn btn-primary"%></p>
+<a><%= link_to "Reservar", "/places/@place/reservations", class:"btn btn-primary"%></a>
 </div>
