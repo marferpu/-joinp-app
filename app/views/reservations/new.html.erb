@@ -1,6 +1,6 @@
 <div class="container">
-  <h1 class="mb-4">Nueva Reservación</h1>
-  <%= simple_form_for [@place, @reservation], data: { turbo: false } do |f| %>
+  <h1 class="mt-10 mb-6">Nueva Reservación</h1>
+  <%= simple_form_for [@place, @reservation] do |f| %>
     <%= f.input :date %>
     <%= f.input :visit_hour %>
     <%= f.input :hour_quantity, class: "hours" %>
