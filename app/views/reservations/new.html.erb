@@ -1,12 +1,12 @@
 <div class="container">
   <h1>Nueva Reservación</h1>
-  <p>Find me in app/views/reservations/new.html.erb</p>
   <% simple_form_for [@place, @reservation] do |f| %>
     <%= f.input :date %>
     <%= f.input :visit_hour %>
     <%= f.input :hour_quantity %>
+  <% end %>
     <label for="total-price">Total Price:</label>
-    <p class="total-price"><%= reservation.hour_quantity * place.price_per_hour %></p>
+    <%# <p class="total-price"><%= @reservation.hour_quantity * @place.price_per_hour  </p> %>
     <p>Status:</p>
     <p>Status_Payment:</p>
 </div>
