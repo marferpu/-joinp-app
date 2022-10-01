@@ -12,9 +12,11 @@ user = User.new(first_name: "Pepe", last_name: "H", email: "pp@email.com", passw
 user.save!
 user1 = User.new(first_name: "Marce", last_name: "F", email: "mfp@email.com", password: "123456")
 user1.save!
-place1 = Place.new(title: "Place 1", description: "Lugar bonito", address: "Medellín", price_per_hour: 10000, capicity: 3, photo_url: "https://www.google.com/aclk?sa=l&ai=DChcSEwiG2rqlsrv6AhVIIUwKHQa_D8wYABAFGgJvYQ&sig=AOD64_2PUMAakU73msCZ-jWBUl7lCssQJQ&adurl&ctype=5&ved=2ahUKEwju2Kqlsrv6AhWRjuAKHSFFAXEQvhd6BAgBEHY", category: "casa", user_id: user1.id)
+place1 = Place.new(title: "Place 1", description: "Lugar bonito", address: "Medellín", price_per_hour: 10000, capicity: 3,
+   photo_url: "https://i.pinimg.com/originals/2c/f7/6f/2cf76f3469fa4da58ecde70a069a4068.jpg",
+   category: "casa", user_id: user1.id)
 place1.save!
-place2 = Place.new(title: "Place 3", description: "Lugar para compartir", address: "Medellín", price_per_hour: 40000, capicity: 8, photo_url: "https://www.google.com/aclk?sa=l&ai=DChcSEwiG2rqlsrv6AhVIIUwKHQa_D8wYABAFGgJvYQ&sig=AOD64_2PUMAakU73msCZ-jWBUl7lCssQJQ&adurl&ctype=5&ved=2ahUKEwju2Kqlsrv6AhWRjuAKHSFFAXEQvhd6BAgBEHY", category: "parqueadero", user_id: user.id  )
+place2 = Place.new(title: "Place 3", description: "Lugar para compartir", address: "Medellín", price_per_hour: 40000, capicity: 8, photo_url: "https://backend.vivendo.co/sites/default/files/styles/display_post/public/2020-03/parqueadero.png.jpg?itok=GvVfphSo", category: "parqueadero", user_id: user.id  )
 place2.save!
 
 puts "Cargando datos Users"
