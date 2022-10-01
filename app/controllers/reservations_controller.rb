@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.place = @place
+    @reservation.user = current_user
     if @reservation.save
       redirect_to place_path(@place)
     else
@@ -29,9 +30,9 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # def show
-  #   @reservation = Reservation.find(params[:id])
-  # end
+  def show
+    @reservation = Reservation.find(params[:id])
+  end
 
   def destroy
     @reservation = Reservation.find(params[:id])
@@ -42,7 +43,7 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservations).permit(:date, :visit_hour, :hour_quantity)
+    params.require(:reservation).permit(:date, :visit_hour, :hour_quantity)
   end
 
   def set_place
