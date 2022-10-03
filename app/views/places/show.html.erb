@@ -6,12 +6,13 @@
       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
   </div>
-  <p>Detalles: <%= @place.description %></p>
-  <p>Dirección: <%= @place.address %></p>
-  <p>Capacidad: <%= @place.capicity %> personas</p>
-  <p>Precio por hora: <%= @place.price_per_hour %> COP</p>
-
-<div class="mb-5"><%= link_to "Reservar", class:"btn btn-primary"%></div>
-<a><%= link_to "Regresar", places_path, class:"btn btn-outline-success"%></a>
+  <div>
+    <p>Detalles: <%= @place.description %></p>
+    <p>Dirección: <%= @place.address %></p>
+    <p>Capacidad: <%= @place.capicity %> personas</p>
+    <p>Precio por hora: <%= @place.price_per_hour %> COP</p>
+  </div>
+  <a class="mb-5"><%= link_to "Reservar", new_place_reservation_path, class:"btn btn-primary" %></a>
+  <%= link_to "Regresar", places_path, class:""%>
 
 </div>
