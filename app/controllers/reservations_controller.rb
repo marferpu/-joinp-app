@@ -7,8 +7,8 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.place = @place
-    @reservation.user = current_user
+    @reservation.place_id = @place.id
+    @reservation.user_id = current_user.id
     if @reservation.save
       redirect_to place_path(@place)
     else
