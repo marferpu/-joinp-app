@@ -11,7 +11,10 @@
     <p>Dirección: <%= @place.address %></p>
     <p>Capacidad: <%= @place.capicity %> personas</p>
     <p>Precio por hora: <%= @place.price_per_hour %> COP</p>
+
+    <a class="mb-5"><%= link_to "Reservar", new_place_reservation_path(@place), class:"btn btn-primary" %></a>
   </div>
-  <a class="mb-5"><%= link_to "Reservar", new_place_reservation_path, class:"btn btn-primary" %></a>
-  <%= link_to "Regresar", places_path, class:""%>
+  <div class="d-flex">
+   <a class="mb-5"><%= link_to "Regresar", places_path, class:""%></a>
+  </div>
 </div>
