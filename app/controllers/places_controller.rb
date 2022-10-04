@@ -12,9 +12,9 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    # @place.user = current_user
+    @place.user_id = current_user.id
     if @place.save
-      redirect_to place_path, notice: "Se ha agregado correctamente"
+      redirect_to root_path, notice: "Se ha agregado correctamente"
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:title, :description, :address, :price_per_hour, :capicity, :category, photo: [])
+    params.require(:place).permit(:title, :description, :address, :category, :price_per_hour, :capicity, photos: [])
   end
 
   def set_place

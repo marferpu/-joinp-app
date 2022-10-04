@@ -7,5 +7,5 @@ class Place < ApplicationRecord
   validates :category, presence: true
   belongs_to :user
   has_many :reservations
-  has_one_attached :photo
+  has_many_attached :photos
 end

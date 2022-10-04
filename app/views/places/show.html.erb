@@ -2,15 +2,15 @@
   <h1 class="mt-10 mb-6">JoinPeople</h1>
   <h3><%= @place.title%> (<%=@place.category %>)</h3>
   <div>
-    <% @place.photo.each do |photo| %>
-      <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <%= image_tag @place.photo, width: 200 if @place.photo.attached? %>
-    <% end %>
     <p>Detalles: <%= @place.description %></p>
     <p>Dirección: <%= @place.address %></p>
     <p>Capacidad: <%= @place.capicity %> personas</p>
     <p> Precio por hora: <%= @place.price_per_hour %> COP</p>
-  </div>
+    <%# <%= image_tag @place.photo if @place.photo.attached? %>
+    <% @place.photos.each do |photo| %>
+       <%= image_tag photo if @place.photos.attached? %>
+    <% end %>
+    </div>
 
   <div class="mb-5"><%= link_to "Reservar", class:"btn btn-primary"%></div>
 <a><%= link_to "Regresar", places_path, class:"btn btn-outline-success"%></a>
