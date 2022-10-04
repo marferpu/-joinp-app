@@ -3,6 +3,11 @@
 <h1 class="mt-10 mb-6">Modifica tu epacio ofertado</h1>
 
  <%= simple_form_for(@place) do |f| %>
+    <% @place.errors.full_messages.each do |error| %>
+    <div>
+      <%= error %>
+    </div>
+    <% end %>
   <div class="form-inputs">
     <%= f.input :title, label:"Título" %>
     <%= f.input :description, label:"Descripción" %>
