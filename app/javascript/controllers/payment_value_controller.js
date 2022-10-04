@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static targets = ["div", "p"]
   connect() {
     this.element.textContent = "Calculando el valor a pagar"
   }

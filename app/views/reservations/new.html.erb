@@ -1,13 +1,54 @@
 <div class="container">
-  <h1 class="mt-10 mb-6">Nueva Reservación</h1>
+  <h1 class="mt-10 mb-6">Reservar este lugar:
+  "<strong><%= @place.title %></strong>"</h1>
+
   <%= simple_form_for [@place, @reservation] do |f| %>
+  <div class="form-inputs">
     <%= f.input :date %>
     <%= f.input :visit_hour %>
-    <%= f.input :hour_quantity, class: "hours" %>
-    <%= f.submit "Reservar", class: "btn btn-primary mt-4", alert: "¡Se generó la reservación!" %>
+    <%= f.input :hour_quantity, id: "hours" %>
+  </div>
+    <div class="form-actions">
+      <%= f.submit "Reservar", class: "btn btn-primary mt-4" %>
+    </div>
   <% end %>
 
-  <%# <h2 class="m-6">Valor a Pagar</h2> %>
+  <div class="mt-16">
+    <h4 class="mt-4">Resumen de Pago</h4>
+    <div class="mt-8">
+      <h5><strong>Valor por hora:</strong></h5>
+      <p id="price_hour"><%= @place.price_per_hour %></p>
+      <h5><strong>Total horas reservadas:</strong></h5>
+      <p id="num_hour"><%= @reservation.hour_quantity %></p>
+    </div>
+
+    <div class=""
+         data-controller="payment-value"
+         data-action="click->payment-value#total-pay">
+      <h5><strong>Total Reserva:</strong></h5>
+      <p id="total"><strong></strong></p>
+    </div>
+    <script>
+      let price;
+      price = document.querySelector('#price_hour').textContent;
+
+      let hour;
+      hour = document.querySelector('#num_hour').textContent;
+
+      let submit_button = document.querySelector('.btn');
+      console.log("price: ", price)
+      console.log("hours: ", hour)
+      submit_button.addEventListener('click', totalReservation());
+
+
+      function totalReservation() {
+
+        let payment = parseInt(price, 10) * parseInt(hour, 10);
+        document.querySelector("#total").innerHTML = payment;
+      }
+      console.log("hours: ", hour)
+    </script>
+    <%#
 
 
     <%# <button class="btn btn-outline-primary mt-4" data-controller="payment-value" data-action="click->payment-value#total-pay">
@@ -17,4 +58,5 @@
     <%# <div class="total mt-5">
       <% let price = document.querySelector('') %>
       <%# <%= @reservation.hour_quantity * @place.price_per_hour %>
+  </div>
 </div>
