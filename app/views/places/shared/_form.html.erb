@@ -1,13 +1,6 @@
-<div class="container"></div>
 
-<h1 class="mt-10 mb-6">Modifica tu epacio ofertado</h1>
+<%= simple_form_for(@place) do |f| %>
 
- <%= simple_form_for(@place) do |f| %>
-    <% @place.errors.full_messages.each do |error| %>
-    <div>
-      <%= error %>
-    </div>
-    <% end %>
   <div class="form-inputs">
     <%= f.input :title, label:"Título" %>
     <%= f.input :description, label:"Descripción" %>
@@ -18,6 +11,10 @@
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   </div>
   <div class="form-actions">
-    <%= f.submit "Actualizar", class: "btn btn-primary m-3" %>
+    <%= f.submit %>
   </div>
 <% end %>
+
+  <!--<%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.errors[:base].present? %>
+  -->

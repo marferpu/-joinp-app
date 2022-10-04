@@ -10,11 +10,14 @@
     <% @place.photos.each do |photo| %>
        <%= image_tag photo if @place.photos.attached? %>
     <% end %>
-    </div>
+  <div class="mb-5"><%= link_to "Reservar", new_place_reservation_path(@place), class:"btn btn-primary"%></div>
+  </div>
 
-  <div class="mb-5"><%= link_to "Reservar", class:"btn btn-primary"%></div>
-<a><%= link_to "Regresar", places_path, class:"btn btn-outline-success"%></a>
-<%= link_to "Editar espacio", edit_place_path(@place), class:"btn btn-outline-success" %>
-<%= link_to "Eliminar espacio", place_path(@place), class:"btn btn-outline-success", data: {turbo_method: :delete, turbo_confirm: "¿Estas seguro de eliminar?"} %>
+  
+  <div>
+    <a><%= link_to "Regresar", places_path %></a>
+    <a><%= link_to "Editar espacio", edit_place_path(@place), class:"btn btn-outline-primary" %></a>
+    <a><%= link_to "Eliminar espacio", place_path(@place), class:"btn btn-outline-primary", data: {turbo_method: :delete, turbo_confirm: "¿Estas seguro de eliminar?"} %></a>
+  </div>
 </div>
 
