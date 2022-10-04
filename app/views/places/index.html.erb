@@ -2,25 +2,16 @@
   <h1 class="mt-10 mb-6">JoinPeople</h1>
   <h5>Encuentra el mejor espacio del valle de Aburra</h5>
   <h2>Nuestros espacios</h2>
-  <div class="row">
+  
     <% @places.each do |place| %>
-      <div class="col-md-4 col-sm-12">
-        <div class="card mb-4" style="width: 18rem;">
-        <% if place.photos.blank? %>
-          <%= image_tag place.photo_url, width: 100, height: 100, class:"card-img-top" %>
-        <% else %>
-          <% place.photos.each do |photo| %>
-
-            <%= image_tag photo.url, width: 100, height: 100, class:"card-img-top" %>
-          <% end %>
-        <% end %>
+      <%= link_to place_path(place), class: 'place' do %>
+        <%# <% image_tag place.photos.each do |photo| %>
+        
           <div class="card-body">
             <h5 class="card-title"><%= place.title %>  (<%= place.category %>)</h5>
             <p class="card-text"><%= place.description %></p>
-            <%= link_to "Ver más", place_path(place.id), class:"btn btn-primary"%>
           </div>
-        </div>
-      </div>
+        <%# <% end %>
+      <% end %>        
     <% end %>
-  </div>
 </div>

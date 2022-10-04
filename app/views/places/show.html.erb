@@ -2,16 +2,22 @@
   <h1 class="mt-10 mb-6">JoinPeople</h1>
   <h3><%= @place.title%> (<%=@place.category %>)</h3>
   <div>
-    <% @place.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  </div>
-  <div>
     <p>Detalles: <%= @place.description %></p>
     <p>Dirección: <%= @place.address %></p>
     <p>Capacidad: <%= @place.capicity %> personas</p>
-    <p>Precio por hora: <%= @place.price_per_hour %> COP</p>
+    <p> Precio por hora: <%= @place.price_per_hour %> COP</p>
+    <%# <%= image_tag @place.photo if @place.photo.attached? %>
+    <% @place.photos.each do |photo| %>
+       <%= image_tag photo if @place.photos.attached? %>
+    <% end %>
+  <div class="mb-5"><%= link_to "Reservar", new_place_reservation_path(@place), class:"btn btn-primary"%></div>
   </div>
-  <a class="mb-5"><%= link_to "Reservar", new_place_reservation_path, class:"btn btn-primary" %></a>
-  <%= link_to "Regresar", places_path, class:""%>
+
+  
+  <div>
+    <a><%= link_to "Regresar", places_path %></a>
+    <a><%= link_to "Editar espacio", edit_place_path(@place), class:"btn btn-outline-primary" %></a>
+    <a><%= link_to "Eliminar espacio", place_path(@place), class:"btn btn-outline-primary", data: {turbo_method: :delete, turbo_confirm: "¿Estas seguro de eliminar?"} %></a>
+  </div>
 </div>
+

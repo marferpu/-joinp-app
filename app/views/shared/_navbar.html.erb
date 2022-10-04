@@ -1,8 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/places">
       <img src="https://i.ibb.co/kg0Q3sc/Whats-App-Image-2022-09-27-at-10-09-17-PM.jpg" />
-</a>
+    </a>
+      
+     <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
+      class: "dropdown-item" %>
+      
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,17 +15,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/places">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
+            <a class="nav-link" href="/users/sign_in">Login</a>
           </li>
           <li class="nav-item dropdown">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://i.ibb.co/PhGQjV9/Whats-App-Image-2022-09-27-at-10-09-17-PM-1.jpg" />
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+              <a class="dropdown-item" href="/perfil">Perfil</a>
+              <a class="dropdown-item" href="/dashboard">Mis reservaciones / Mis Lugares</a>
+              <a class="dropdown-item" data-turbo-method="delete" href="destroy_user_session_path">Log out</a>
             </div>
           </li>
           <!--li class="nav-item"-->
