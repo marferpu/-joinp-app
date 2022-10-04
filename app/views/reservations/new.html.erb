@@ -9,7 +9,7 @@
     <%= f.input :hour_quantity, id: "hours" %>
   </div>
     <div class="form-actions">
-      <%= f.submit "Reservar", class: "btn btn-primary mt-4" %>
+      <%= f.submit "Confirmar Reserva", class: "btn btn-primary mt-4" %>
     </div>
   <% end %>
 
@@ -26,7 +26,7 @@
          data-controller="payment-value"
          data-action="click->payment-value#total-pay">
       <h5><strong>Total Reserva:</strong></h5>
-      <p id="total"><strong></strong></p>
+      <p id="total"></p>
     </div>
     <script>
       let price;
@@ -44,7 +44,7 @@
       function totalReservation() {
 
         let payment = parseInt(price, 10) * parseInt(hour, 10);
-        document.querySelector("#total").innerHTML = payment;
+        document.querySelector("#total").innerHTML.value = payment;
       }
       console.log("hours: ", hour)
     </script>

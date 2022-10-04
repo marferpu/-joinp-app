@@ -15,9 +15,19 @@
 
   
   <div>
-    <a><%= link_to "Regresar", places_path %></a>
+
+    <p>Detalles: <%= @place.description %></p>
+    <p>Dirección: <%= @place.address %></p>
+    <p>Capacidad: <%= @place.capicity %> personas</p>
+    <p>Precio por hora: <%= @place.price_per_hour %> COP</p>
+
+    <a class="mb-5"><%= link_to "Reservar", new_place_reservation_path(@place), class:"btn btn-primary" %></a>
+  </div>
+  <div class="d-flex">
     <a><%= link_to "Editar espacio", edit_place_path(@place), class:"btn btn-outline-primary" %></a>
     <a><%= link_to "Eliminar espacio", place_path(@place), class:"btn btn-outline-primary", data: {turbo_method: :delete, turbo_confirm: "¿Estas seguro de eliminar?"} %></a>
+    <a class="mb-5"><%= link_to "Regresar", places_path, class:""%></a>
+    
   </div>
 </div>
 
