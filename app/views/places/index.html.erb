@@ -2,6 +2,20 @@
   <h1 class="mt-10 mb-6">JoinPeople</h1>
   <h5>Encuentra el mejor espacio del valle de Aburra</h5>
   <h2>Nuestros espacios</h2>
+</div>
+
+<div class="container mb=10">
+
+  <%= form_with url: places_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Encuentra un lugar"
+    %>
+    <%= submit_tag "Buscar", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
   <div class="row">
     <% @places.each do |place| %>
       <div class="col-md-4 col-sm-12">
