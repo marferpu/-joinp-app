@@ -9,7 +9,6 @@ puts "Cleaning database..."
 User.destroy_all
 Place.destroy_all
 
-
 user = User.new(first_name: "Pepe", last_name: "H", email: "pp@email.com", password: "123456")
 user.save!
 user1 = User.new(first_name: "Marce", last_name: "F", email: "mfp@email.com", password: "123456")

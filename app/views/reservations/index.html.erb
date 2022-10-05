@@ -1,0 +1,3 @@
+<% @reservations.each do |reservation| %>
+  <%= reservation.place.title %> <%= reservation.date %> <img src="<%= reservation.place.photo_url %>" width="200px" alt="">
+<% end %>

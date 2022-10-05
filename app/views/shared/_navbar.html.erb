@@ -3,8 +3,9 @@
     <a class="navbar-brand" href="/places">
       <img src="https://i.ibb.co/kg0Q3sc/Whats-App-Image-2022-09-27-at-10-09-17-PM.jpg" />
     </a>
-
-     <%= current_user.email %>
+    <% if user_signed_in? %>
+      <%= current_user.email %>
+    <% end  %>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
