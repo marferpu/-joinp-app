@@ -1,5 +1,8 @@
 class ReservationsController < ApplicationController
-  before_action :set_place, only: %i[new create show edit update destroy]
+  before_action :set_place, only: %i[new create]
+  def index
+    @reservations = Reservation.all
+  end
 
   def new
     @reservation = Reservation.new
@@ -9,8 +12,9 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.place_id = @place.id
     @reservation.user_id = current_user.id
+    @reservation.total_price = @place.price_per_hour * @reservation.hour_quantity
     if @reservation.save
-      redirect_to place_path(@place)
+      redirect_to @reservation
     else
       render :new, status: :unprocessable_entity
     end
