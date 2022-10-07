@@ -1,0 +1,20 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <% @places.each do |place| %>
+    <div class="col">
+      <div class="card h-100 " style="width: 18rem;">
+          <% if place.photos.blank? %>
+            <%= image_tag place.photo_url, width: 100, height: 100, class:"card-img-top" %>
+          <% else %>
+            <% place.photos.each do |photo| %>
+              <%= image_tag photo.url, width: 100, height: 100, class:"card-img-top" %>
+            <% end %>
+          <% end %>
+          <div class="box card-body">
+            <h5 class="card-title fw-bold" ><%= place.title %>  (<%= place.category %>)</h5>
+            <p class="card-text"><%= place.description %></p>
+            <%= link_to "Ver más", place_path(place.id), class:"btn btn-primary"%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>

@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row g-3 align-items-center">
+    <div class="col-auto">
+      <%= form_with url: places_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Encuentra un lugar"
+        %>
+    </div>
+    <div class="col-auto">
+      <%= submit_tag "Buscar", class: "btn btn-outline-success" %>
+    </div>
+  <% end %>
+</div>
