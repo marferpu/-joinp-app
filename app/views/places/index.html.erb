@@ -16,9 +16,9 @@
   <% end %>
 </div>
 
+<div class="container">
   <div class="row">
     
-
     <% @places.each do |place| %>
       <div class="col-md-4 col-sm-12">
         <div class="card mb-4" style="width: 18rem;">
@@ -34,10 +34,7 @@
             <%= link_to "Ver más", place_path(place.id), class:"btn btn-primary"%>
           </div>
         </div>
-      </div>
-    <% end %>
-    <% @place.photos.each do |photo| %>
-      <%= image_tag photo.url %>
+      
     <% end %>
   </div>
 </div>
