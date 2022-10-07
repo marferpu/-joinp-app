@@ -2,7 +2,11 @@ class PlacesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_place, only: %i[show edit update destroy]
   def index
-    @places = Place.all
+    if params[:query].present?
+      @places = Place.search_by_category(params[:query])
+    else
+      @places = Place.all
+    end
   end
 
   def show; end

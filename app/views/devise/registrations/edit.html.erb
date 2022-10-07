@@ -5,6 +5,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :identification_number %>
+    <%= f.input :cellphone %>
+    <%= f.input :address %>
+    <%#= f.input :country %>
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
