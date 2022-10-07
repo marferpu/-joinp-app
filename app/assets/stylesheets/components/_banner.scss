@@ -1,20 +1,34 @@
 .banner {
   background-size: cover;
-  background-position: center;
-  padding: 150px 0;
+  background-position: cover;
+  padding: 0px 0px;
 }
 
-.banner h1 {
+.banner-letters h1 {
   margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  color: black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2),
+                           rgb(3, 153, 158);
+  font-size: 38px;
   font-weight: bold;
 }
 
-.banner p {
+.banner-letters h2 {
   font-size: 20px;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner h3 {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  padding-bottom: 50px;
+}
+
+h5{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
 }
