@@ -13,7 +13,7 @@
         <% if user_signed_in? %>
           <% current_user.role = "Explorador" %>
           <li class="nav-item">
-            <a href="#Perfil" class="nav-link"><%= current_user.email %></a>
+            <a href="#Perfil" class="nav-link"><%= current_user.first_name %> <%= current_user.last_name %></a>
           </li>
           <li class="nav-item">
             <a href="#Dashboard" class="nav-link fw-semibold fst-italic">Rol <%= current_user.role %></a>
@@ -28,7 +28,7 @@
             <%= image_tag "https://i.ibb.co/PhGQjV9/Whats-App-Image-2022-09-27-at-10-09-17-PM-1.jpg", class: "avatar dropdown-toggle rounded-circle border border-1", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Perfil", "users_show", class: "dropdown-item" %>
+              <%= link_to "Perfil", "users/edit", class: "dropdown-item" %>
               <%= link_to "Dashboard", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
