@@ -1,24 +1,44 @@
 
 <div class="container">
-  <h1>Mis reservas JoinPeople</h1>
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <% @reservation.place.photos.each do |photo| %>
-      <div class="col">
-        <div class="card h-100 " style="width: 18rem;">
-          <%= image_tag photo, width: 100, height: 100, class:"card-img-top" %>
-          <div class="box card-body">
-            <h4 class="card-title fw-bold" ><%= @reservation.place.title %>  (<%= @reservation.place.category %>)</h4>
-            <p class="card-title">Fecha: <%= @reservation.date %></p>
-            <p class="card-title">Hora de llegada: <%= @reservation.visit_hour %></p>
-            <p class="card-title">Cantidad de horas:<%= @reservation.hour_quantity %></p>
-            <p class="card-title">Precio total $: <%= @reservation.total_price%></p>
-            <%= link_to "Eliminar reserva",
-              reservation_path(@reservation), method: :delete,
-              data: {turbo_method: :delete, turbo_confirm: "¿Deseas eliminar esta reservación?"}
-            %>
+  <h1><%= @reservation.place.title %></h1>
+  <div class="row gap-4">
+
+      <%# <div class="col"> %>
+    <div class="card" style="width: 36rem;">
+    <%# h-100 col col-md-3 %>
+      <%# @reservation.place.photos.each do |photo| %>
+        <%#= image_tag photo, width: 100, height: 100, class:"card-img mt-3" %>
+      <%# end %>
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <% @reservation.place.photos.each do |photo| %>
+          <div class="carousel-item active">
+            <%= image_tag photo, width: 150, height: 100, class:"d-block w-100 mt-3" %>
           </div>
+          <% end %>
         </div>
       </div>
-    <% end %>
+      <div class="box card-body">
+            <h4 class="card-title fw-bold" ><%= @reservation.place.category %></h4>
+            <p class="card-title">Fecha: <%= @reservation.date %></p>
+            <p class="card-title">Hora de llegada: <%= @reservation.visit_hour %></p>
+            <p class="card-title">Cantidad de horas: <%= @reservation.hour_quantity %></p>
+            <p class="card-title">Precio total $: <%= @reservation.total_price%></p>
+            <%# <div class="d-flex-inline"> %>
+              <%= link_to "Eliminar reserva",
+                reservation_path(@reservation), method: :delete, class:"btn btn-secondary p-0 m-1",
+                data: {turbo_method: :delete, turbo_confirm: "¿Deseas eliminar esta reservación?"}
+              %>
+              <%= link_to "Editar reserva",
+                edit_reservation_path(@reservation), method: :update, class:"btn btn-secondary p-0 m-1",
+                data: {turbo_method: :update, turbo_confirm: "¿Deseas actualizar esta reservación?"}
+              %>
+            <%# </div> %>
+            <div class="d-flex-inline">
+              <a class="mb-5"><%= link_to "Regresar", places_path, class:"btn btn-link"%></a>
+            </div>
+          </div>
+        </div>
+      <%# </div> %>
   </div>
 </div>

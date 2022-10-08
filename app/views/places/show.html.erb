@@ -8,17 +8,25 @@
     <p> Precio por hora: <%= @place.price_per_hour %> COP</p>
     <%# <%= image_tag @place.photo if @place.photo.attached? %>
     <% @place.photos.each do |photo| %>
-       <%= image_tag photo if @place.photos.attached? %>
+        <%if @place.photos.attached? %>
+          <%= image_tag photo, width: 100, height: 100 %>
+        <% end %>
     <% end %>
+    <br>
   <div class="mb-5"><%= link_to "Reservar", new_place_reservation_path(@place), class:"btn btn-primary"%></div>
   </div>
 
   <div class="d-flex">
     <% if current_user.present? && (current_user.id == @place.user_id) %>
-      <a><%= link_to "Editar espacio", edit_place_path(@place), class:"btn btn-outline-info" %></a>
-      <a><%= link_to "Eliminar espacio", place_path(@place), class:"btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "¿Estas seguro de eliminar?"} %></a>
+      <div class="d-flex-inline">
+        <a><%= link_to "Editar espacio", edit_place_path(@place), class:"btn btn-secondary" %></a>
+        <a><%= link_to "Eliminar espacio", place_path(@place), class:"btn btn-secondary", data: {turbo_method: :delete, turbo_confirm: "¿Estas seguro de eliminar?"} %></a>
+        <a class="mb-5"><%= link_to "Regresar", places_path, class:"btn btn-outline-secondary"%></a>
+      </div>
     <% else %>
-      <a class="mb-5"><%= link_to "Regresar", places_path, class:"btn btn-outline-secondary"%></a>
+      <div class="d-flex-inline">
+        <a class="mb-5"><%= link_to "Regresar", places_path, class:"btn btn-link"%></a>
+      </div>
     <% end %>
   </div>
 </div>
