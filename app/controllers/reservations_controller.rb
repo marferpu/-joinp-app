@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @reservation.update(reservation_params)
     if @reservation.save
-      redirect_to place_path(@place)
+      redirect_to reservation_path(@reservation)
     else
       render :edit, status: :unprocessable_entity
     end

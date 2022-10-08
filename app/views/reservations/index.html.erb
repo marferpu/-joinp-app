@@ -1,10 +1,9 @@
 <div class="container">
-  <h1>Mis reservas JoinPeople</h1>
+  <h1>Mis Reservas JoinPeople</h1>
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @reservations.each do |reservation| %>
     <div class="col">
         <div class="card h-100 " style="width: 18rem;">
-
           <div class="box card-body">
             <h4 class="card-title fw-bold" ><%= reservation.place.title %>  (<%= reservation.place.category %>)</h4>
             <% if reservation.place.photos.blank? %>

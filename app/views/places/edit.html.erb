@@ -1,23 +1,26 @@
-<div class="container"></div>
+<div class="container">
 
-<h1 class="mt-10 mb-6">Modifica tu epacio ofertado</h1>
+  <h1 class="mt-10 mb-6">Modifica tu epacio ofertado</h1>
 
- <%= simple_form_for(@place) do |f| %>
-    <% @place.errors.full_messages.each do |error| %>
-    <div>
-      <%= error %>
+  <%= simple_form_for(@place) do |f| %>
+      <% @place.errors.full_messages.each do |error| %>
+      <div>
+        <%= error %>
+      </div>
+      <% end %>
+    <div class="form-inputs">
+      <%= f.input :title, label:"Título" %>
+      <%= f.input :description, label:"Descripción" %>
+      <%= f.input :address, label:"Dirección" %>
+      <%= f.input :category, label:"Categoría" %>
+      <%= f.input :price_per_hour, label:"Precio por hora", placeholder: "COP" %>
+      <%= f.input :capicity, label:"Capacidad", placeholder:"Ingresa la capacidad màxima del lugar", class:"pt-5" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
-    <% end %>
-  <div class="form-inputs">
-    <%= f.input :title, label:"Título" %>
-    <%= f.input :description, label:"Descripción" %>
-    <%= f.input :address, label:"Dirección" %>
-    <%= f.input :category, label:"Categoría" %>
-    <%= f.input :price_per_hour, label:"Precio por hora", placeholder: "COP" %>
-    <%= f.input :capicity, label:"Capacidad", placeholder:"Ingresa la capacidad màxima del lugar", class:"pt-5" %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  </div>
-  <div class="form-actions">
-    <%= f.submit "Actualizar", class: "btn btn-primary m-3" %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.submit "Actualizar", class: "btn btn-primary m-3" %>
+      <a class="mb-5"><%= link_to "Regresar", places_path, class:"btn btn-link"%></a>
+    </div>
+
+  <% end %>
+</div>

@@ -1,11 +1,18 @@
 <div class="container">
-  <h1>Editar Reservación para <%= @place.title %></h1>
-  <% simple_form_for [@place, @reservation] do |f| %>
+  <h1 class="mt-10 mb-6">Editar esta reserva:
+  "<strong><%= @reservation.place.title %></strong>"</h1>
+
+  <%= simple_form_for [@place, @reservation] do |f| %>
+  <div class="form-inputs">
     <%= f.input :date %>
     <%= f.input :visit_hour %>
-    <%= f.input :hour_quantity %>
-    <label for="total-price">Total Price:</label>
-    <p class="total-price"><%= reservation.hour_quantity * place.price_per_hour %></p>
-    <p>Status:</p>
-    <p>Status_Payment:</p>
+    <%= f.input :hour_quantity, id: "hours" %>
+  </div>
+    <div class="form-actions">
+      <%= f.submit "Confirmar Reserva", class: "btn btn-primary mt-4" %>
+    </div>
+  <% end %>
+  <div class="d-flex-inline">
+    <a class="mb-5"><%= link_to "Regresar", reservation_path(@reservation), class:"btn btn-link"%></a>
+  </div>
 </div>
