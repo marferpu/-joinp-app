@@ -13,21 +13,21 @@
     </div>
   <% end %>
 
-  <div class="mt-16">
+  <%# <div class="mt-16">
     <h4 class="mt-4">Resumen de Pago</h4>
     <div class="mt-8">
       <h5><strong>Valor por hora:</strong></h5>
-      <p id="price_hour"><%= @place.price_per_hour %></p>
-      <h5><strong>Total horas reservadas:</strong></h5>
-      <p id="num_hour"><%= @reservation.hour_quantity %></p>
-    </div>
+      <p id="price_hour"><%= @place.price_per_hour %>
+      <%# <h5><strong>Total horas reservadas:</strong></h5>
+      <p id="num_hour"><%= @reservation.hour_quantity %>
+    <%# </div> %>
 
-    <div class=""
+    <%# <div class=""
          data-controller="payment-value"
          data-action="click->payment-value#total-pay">
       <h5><strong>Total Reserva:</strong></h5>
       <p id="total"></p>
-    </div>
+    </div> %>
     <%# <script>
       let price;
       price = document.querySelector('#price_hour').textContent;
