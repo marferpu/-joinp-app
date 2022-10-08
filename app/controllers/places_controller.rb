@@ -9,8 +9,6 @@ class PlacesController < ApplicationController
     end
   end
 
-  def show; end
-
   def new
     @place = Place.new
   end
@@ -25,6 +23,8 @@ class PlacesController < ApplicationController
     end
   end
 
+  def show; end
+  
   def edit; end
 
   def update
