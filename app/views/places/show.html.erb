@@ -14,11 +14,11 @@
   </div>
 
   <div class="d-flex">
-    <% if current_user.id == @place.user_id %>
+    <% if current_user.present? && (current_user.id == @place.user_id) %>
       <a><%= link_to "Editar espacio", edit_place_path(@place), class:"btn btn-outline-info" %></a>
       <a><%= link_to "Eliminar espacio", place_path(@place), class:"btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "¿Estas seguro de eliminar?"} %></a>
+    <% else %>
+      <a class="mb-5"><%= link_to "Regresar", places_path, class:"btn btn-outline-secondary"%></a>
     <% end %>
-    <a class="mb-5"><%= link_to "Regresar", places_path, class:"btn btn-outline-secondary"%></a>
-
   </div>
 </div>
