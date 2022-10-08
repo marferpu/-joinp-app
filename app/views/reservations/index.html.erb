@@ -1,3 +1,32 @@
-<% @reservations.each do |reservation| %>
-  <%= reservation.place.title %> <%= reservation.date %> <img src="<%= reservation.place.photo_url %>" width="200px" alt="">
-<% end %>
+<div class="container">
+  <h1>Mis reservas JoinPeople</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @reservations.each do |reservation| %>
+    <div class="col">
+        <div class="card h-100 " style="width: 18rem;">
+
+          <div class="box card-body">
+            <h4 class="card-title fw-bold" ><%= reservation.place.title %>  (<%= reservation.place.category %>)</h4>
+            <% if reservation.place.photos.blank? %>
+              <%= image_tag reservation.place.photo_url, width: 100, height: 100, class:"card-img-top" %>
+            <% else %>
+              <%= image_tag reservation.place.photos[0], width: 100, height: 100, class:"card-img-top" %>
+            <% end %>
+            <p class="card-title">Fecha: <%= reservation.date %></p>
+            <p class="card-title">Hora de llegada: <%= reservation.visit_hour %></p>
+            <p class="card-title">Cantidad de horas:<%= reservation.hour_quantity %></p>
+            <p class="card-title">Precio total $: <%= reservation.total_price%></p>
+            <%= link_to "Eliminar reserva",
+              reservation_path(reservation), method: :delete,
+              data: {turbo_method: :delete, turbo_confirm: "¿Deseas eliminar esta reservación?"}
+            %>
+          </div>
+        </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<!--
+<%# <%= reservation.place.title %> <%#= reservation.date %>
+<img src="<%#= reservation.place.photo_url %>" width="200px" alt="">
+-->

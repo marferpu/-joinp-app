@@ -13,7 +13,7 @@
             <p class="card-title">Cantidad de horas:<%= @reservation.hour_quantity %></p>
             <p class="card-title">Precio total $: <%= @reservation.total_price%></p>
             <%= link_to "Eliminar reserva",
-              reservation_path(@reservation),
+              reservation_path(@reservation), method: :delete,
               data: {turbo_method: :delete, turbo_confirm: "¿Deseas eliminar esta reservación?"}
             %>
           </div>

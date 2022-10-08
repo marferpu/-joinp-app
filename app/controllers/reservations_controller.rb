@@ -40,8 +40,14 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation = Reservation.find(params[:id])
+    # place = @reservation.place
     @reservation.destroy
-    redirect_to place_path(@place), status: :see_other
+    if Reservation.all.empty?
+      redirect_to reservations_path, status: 200,
+      flash: { notice: "No tienes reservaciones en el momento" }
+    else
+      redirect_to reservations_path, status: :see_other
+    end
   end
 
   private
