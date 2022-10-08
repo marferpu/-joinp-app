@@ -15,14 +15,20 @@
             <p class="card-title">Hora de llegada: <%= reservation.visit_hour %></p>
             <p class="card-title">Cantidad de horas:<%= reservation.hour_quantity %></p>
             <p class="card-title">Precio total $: <%= reservation.total_price%></p>
-            <%= link_to "Eliminar reserva",
-              reservation_path(reservation), method: :delete,
-              data: {turbo_method: :delete, turbo_confirm: "¿Deseas eliminar esta reservación?"}
-            %>
+            <div class="d-flex-inline">
+              <a><%= link_to "Editar mi reserva", edit_reservation_path(reservation), class:"btn btn-secondary p-0" %></a>
+              <%= link_to "Eliminar",
+                reservation_path(reservation), method: :delete, class:"btn btn-secondary p-0",
+                data: {turbo_method: :delete, turbo_confirm: "¿Deseas eliminar esta reservación?"}
+              %>
+            </div>
           </div>
         </div>
     </div>
     <% end %>
+  </div>
+  <div class="d-flex-inline">
+    <a class="mb-5"><%= link_to "Regresar", places_path, class:"btn btn-link"%></a>
   </div>
 </div>
 <!--
