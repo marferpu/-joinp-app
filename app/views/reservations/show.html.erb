@@ -1,34 +1,24 @@
+
 <div class="container">
-  <h1>Mis reservas JoinApp</h1>
-  <div class="row">
-    <div class="col-12">
-      <% @reservation.place.photos.each do |photo| %>
-        <div><%= image_tag photo %></div>
-      <% end %>
-    </div>
-
-    <div class="col-4">
-        <h2><%= @reservation.place.title %></h2>
-      <div class="row">
-        <p><%= @reservation.date %></p>
-      <div class="row">
-        <p><%= @reservation.visit_hour %></p>
-      <div class="row">
-        <p><%= @reservation.hour_quantity %></p>
-      <div class="row">
-        <p><%= @reservation.status %></p>
-      <div class="row">
-        <p><%= @reservation.total_price %></p>
-      <div class="row">
-        <p><%= @reservation.paid_status %></p>
-
+  <h1>Mis reservas JoinPeople</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @reservation.place.photos.each do |photo| %>
+      <div class="col">
+        <div class="card h-100 " style="width: 18rem;">
+          <%= image_tag photo, width: 100, height: 100, class:"card-img-top" %>
+          <div class="box card-body">
+            <h4 class="card-title fw-bold" ><%= @reservation.place.title %>  (<%= @reservation.place.category %>)</h4>
+            <p class="card-title">Fecha: <%= @reservation.date %></p>
+            <p class="card-title">Hora de llegada: <%= @reservation.visit_hour %></p>
+            <p class="card-title">Cantidad de horas:<%= @reservation.hour_quantity %></p>
+            <p class="card-title">Precio total $: <%= @reservation.total_price%></p>
+            <%= link_to "Eliminar reserva",
+              reservation_path(@reservation),
+              data: {turbo_method: :delete, turbo_confirm: "¿Deseas eliminar esta reservación?"}
+            %>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
-
-
-<%= link_to "Eliminar Reserva",
-  reservation_path(@reservation),
-  data: {turbo_method: :delete, turbo_confirm: "¿Estás seguro de eliminar esta reservación?"}
-%>
